@@ -26,7 +26,7 @@ def pause(screen, white, pink, height, width, clock):
                 if event.key == pygame.K_SPACE:
                     paused = False
         pygame.display.update()
-        clock.tick(5)
+        clock.tick(10)
 
 
 def new_food(screen, pink):
@@ -97,7 +97,7 @@ def update(tail, direction, player_size, screen, white):
 
     for i in range(len(tail)):
         pygame.draw.rect(screen, white, (tail[i][0], tail[i][1], player_size, player_size))
-        pygame.display.update()
+        
     return tail
 
 
@@ -118,7 +118,7 @@ def main():
     y = height // 2
     location_food_x = random.randint(1, 79) * 10
     location_food_y = random.randint(1, 59) * 10
-    speed = 8
+    speed = 1
     score = 0
     text = "Score: " + str(score)
     yellow = 255, 255, 0
@@ -134,7 +134,6 @@ def main():
         if check_food(tail, location_food_x, location_food_y):
             location_food_x, location_food_y = new_food(screen, pink)
             grow(tail, direction, player_size)
-            speed += 1
             score += 10
             text = "Score: " + str(score)
         
@@ -162,6 +161,9 @@ def main():
                         direction = "left"
                 elif event.key == pygame.K_p:
                     pause(screen, white, pink, height, width, clock)
+                    
+        pygame.display.update()
+        clock.tick(20)
         screen.fill(background)
 
 if __name__ == "__main__":
