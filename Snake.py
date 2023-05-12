@@ -3,7 +3,7 @@ import sys
 import random
 
 #|-------------------------------------------------------------------------------------|
-#|First game I ever made, sorry for no documantation (didn't know it existed back then)|
+#|First game I ever made, sorry for no documentation (didn't know it existed back then)|
 #|-------------------------------------------------------------------------------------|
 
 def pause(screen, white, pink, height, width, clock):
